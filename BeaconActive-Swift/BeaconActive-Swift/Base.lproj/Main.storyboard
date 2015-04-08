@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="BeaconActive_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config-active" translatesAutoresizingMaskIntoConstraints="NO" id="4co-V7-but">
+                                <rect key="frame" x="193" y="124" width="215" height="215"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="nCd-NW-pag"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用云子配置工具扫描上面二维码，或者把图像保存后，再用配置工具读取。以便把云子配置为试验用Beacon。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSP-8c-duT">
+                                <rect key="frame" x="193" y="387" width="255" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="255" id="4LO-Bn-mjq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKp-Tb-A5W">
+                                <rect key="frame" x="240" y="525" width="120" height="30"/>
+                                <state key="normal" title="保存二维码到相册">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToAlbum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pDp-r3-uS6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-rs-GpS">
+                                <rect key="frame" x="269" y="65" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="f7f-r9-jqc"/>
+                                </constraints>
+                                <state key="normal" title="启动监测">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startMonitor:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B74-fa-1tP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hSP-8c-duT" secondAttribute="bottom" constant="110" id="DGZ-R1-TXZ"/>
+                            <constraint firstItem="4co-V7-but" firstAttribute="centerX" secondItem="6Pr-rs-GpS" secondAttribute="centerX" id="Ib1-pe-N9m"/>
+                            <constraint firstAttribute="centerY" secondItem="HKp-Tb-A5W" secondAttribute="centerY" constant="-240" id="MF8-P1-DnY"/>
+                            <constraint firstAttribute="centerX" secondItem="HKp-Tb-A5W" secondAttribute="centerX" id="Ufp-N2-Ct8"/>
+                            <constraint firstAttribute="centerY" secondItem="6Pr-rs-GpS" secondAttribute="centerY" constant="220" id="bw1-PS-lH9"/>
+                            <constraint firstAttribute="centerY" secondItem="4co-V7-but" secondAttribute="centerY" constant="68.5" id="dZs-AU-fuf"/>
+                            <constraint firstItem="hSP-8c-duT" firstAttribute="leading" secondItem="4co-V7-but" secondAttribute="leading" id="hdG-L4-eRq"/>
+                            <constraint firstItem="hSP-8c-duT" firstAttribute="top" secondItem="4co-V7-but" secondAttribute="bottom" constant="48" id="iSd-GZ-Ze3"/>
+                            <constraint firstAttribute="centerX" secondItem="6Pr-rs-GpS" secondAttribute="centerX" id="mN0-qx-9iX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="6Pr-rs-GpS" id="zgm-SO-f7Y"/>
+                        <outlet property="image" destination="4co-V7-but" id="Ebe-ON-59z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="config-active" width="215" height="215"/>
+    </resources>
+</document>
