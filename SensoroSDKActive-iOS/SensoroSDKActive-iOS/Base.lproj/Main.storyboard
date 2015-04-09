@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SensoroSDKActive_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jo-Ge-WKd">
+                                <rect key="frame" x="267" y="47" width="66" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="r8t-uH-xVE"/>
+                                </constraints>
+                                <state key="normal" title="启动监测">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startMonitor:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9NQ-lv-qAg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config-active" translatesAutoresizingMaskIntoConstraints="NO" id="Dww-lp-Tm0">
+                                <rect key="frame" x="193" y="123" width="215" height="215"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG0-mx-9NV">
+                                <rect key="frame" x="240" y="501" width="120" height="30"/>
+                                <state key="normal" title="保存二维码到相册">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToAlbum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="JES-IA-dwt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用云子配置工具扫描上面二维码，或者把图像保存后，再用配置工具读取。以便把云子配置为试验用Beacon。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D22-Ls-mAI">
+                                <rect key="frame" x="190" y="353" width="220" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="0wx-e3-dU7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lG0-mx-9NV" firstAttribute="top" secondItem="D22-Ls-mAI" secondAttribute="bottom" constant="46" id="JDT-wp-W9T"/>
+                            <constraint firstAttribute="centerY" secondItem="5jo-Ge-WKd" secondAttribute="centerY" constant="238" id="Lbi-it-hcD"/>
+                            <constraint firstAttribute="centerX" secondItem="D22-Ls-mAI" secondAttribute="centerX" id="NeC-1m-Ecb"/>
+                            <constraint firstAttribute="centerX" secondItem="Dww-lp-Tm0" secondAttribute="centerX" constant="-0.5" id="b9D-Xz-9ZN"/>
+                            <constraint firstItem="D22-Ls-mAI" firstAttribute="top" secondItem="Dww-lp-Tm0" secondAttribute="bottom" constant="15" id="kBv-gU-hjG"/>
+                            <constraint firstAttribute="centerX" secondItem="5jo-Ge-WKd" secondAttribute="centerX" id="kV0-GV-6Xx"/>
+                            <constraint firstAttribute="centerY" secondItem="Dww-lp-Tm0" secondAttribute="centerY" constant="69.5" id="tFU-Rf-Qst"/>
+                            <constraint firstAttribute="centerX" secondItem="lG0-mx-9NV" secondAttribute="centerX" id="weH-NV-cQQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="5jo-Ge-WKd" id="mOg-TV-SXF"/>
+                        <outlet property="image" destination="Dww-lp-Tm0" id="szF-Mw-WDA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="config-active" width="215" height="215"/>
+    </resources>
+</document>
