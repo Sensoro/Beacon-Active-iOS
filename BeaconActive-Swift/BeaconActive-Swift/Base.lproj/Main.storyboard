@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,6 +20,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config-active" translatesAutoresizingMaskIntoConstraints="NO" id="4co-V7-but">
                                 <rect key="frame" x="193" y="124" width="215" height="215"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="215" id="bgk-Dl-l4H"/>
                                     <constraint firstAttribute="width" constant="215" id="nCd-NW-pag"/>
                                 </constraints>
                             </imageView>
@@ -36,9 +38,6 @@
                                 <state key="normal" title="保存二维码到相册">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveToAlbum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pDp-r3-uS6"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-rs-GpS">
                                 <rect key="frame" x="269" y="65" width="62" height="30"/>
@@ -48,14 +47,10 @@
                                 <state key="normal" title="启动监测">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="startMonitor:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B74-fa-1tP"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hSP-8c-duT" secondAttribute="bottom" constant="110" id="DGZ-R1-TXZ"/>
                             <constraint firstItem="4co-V7-but" firstAttribute="centerX" secondItem="6Pr-rs-GpS" secondAttribute="centerX" id="Ib1-pe-N9m"/>
                             <constraint firstAttribute="centerY" secondItem="HKp-Tb-A5W" secondAttribute="centerY" constant="-240" id="MF8-P1-DnY"/>
                             <constraint firstAttribute="centerX" secondItem="HKp-Tb-A5W" secondAttribute="centerX" id="Ufp-N2-Ct8"/>
@@ -64,12 +59,9 @@
                             <constraint firstItem="hSP-8c-duT" firstAttribute="leading" secondItem="4co-V7-but" secondAttribute="leading" id="hdG-L4-eRq"/>
                             <constraint firstItem="hSP-8c-duT" firstAttribute="top" secondItem="4co-V7-but" secondAttribute="bottom" constant="48" id="iSd-GZ-Ze3"/>
                             <constraint firstAttribute="centerX" secondItem="6Pr-rs-GpS" secondAttribute="centerX" id="mN0-qx-9iX"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hSP-8c-duT" secondAttribute="bottom" constant="110" id="rOn-c7-heQ"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="actionButton" destination="6Pr-rs-GpS" id="zgm-SO-f7Y"/>
-                        <outlet property="image" destination="4co-V7-but" id="Ebe-ON-59z"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

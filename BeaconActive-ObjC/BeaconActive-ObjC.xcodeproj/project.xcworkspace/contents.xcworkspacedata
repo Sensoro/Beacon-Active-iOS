@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SensoroSDKActive-iOS.xcodeproj">
+      location = "self:BeaconActive-ObjC.xcodeproj">
    </FileRef>
 </Workspace>

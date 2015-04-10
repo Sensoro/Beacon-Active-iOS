@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //在通过Location唤醒时，launchOptions包含了UIApplicationLaunchOptionsLocationKey，
         //用于只是是从Location重新唤醒的。
-        if let options = launchOptions as [NSString:AnyObject]?{
+        if let options = launchOptions as! [NSString:AnyObject]?{
         
             if let locationRestart = options[UIApplicationLaunchOptionsLocationKey] as? NSNumber {
                 SENLocationManager.sharedInstance.startMonitor(true);
