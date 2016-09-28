@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         // Do any additional setup after loading the view, typically from a nib.
         if SENLocationManager.sharedInstance.started == true{
-            actionButton.setTitle("结束监测", forState: .Normal);
+            actionButton.setTitle("结束监测", for: .normal);
         }else{
-            actionButton.setTitle("启动监测", forState: .Normal);
+            actionButton.setTitle("启动监测", for: .normal);
         }
     }
 
@@ -29,24 +29,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func startMonitor(sender: AnyObject) {
+    @IBAction func star(_ sender: AnyObject) {
         
         if SENLocationManager.sharedInstance.started == false{
-            actionButton.setTitle("结束监测", forState: .Normal);
-            SENLocationManager.sharedInstance.startMonitor(false);
+            actionButton.setTitle("结束监测", for: .normal);
+            SENLocationManager.sharedInstance.startMonitor(relaunch: false);
         }else{
-            actionButton.setTitle("启动监测", forState: .Normal);
+            actionButton.setTitle("启动监测", for: .normal);
             SENLocationManager.sharedInstance.stopMonitor();
         }
     }
 
     @IBAction func saveToAlbum(sender: AnyObject) {
-        UIImageWriteToSavedPhotosAlbum(image.image,
-            self,"image:didFinishSavingWithError:contextInfo:",nil);
+//        UIImageWriteToSavedPhotosAlbum(image.image!,
+//                                       self,#selector("image:didFinishSavingWithError:contextInfo:"),nil);
     }
     
     //
-    func image(image : UIImage, didFinishSavingWithError error : NSError!, contextInfo info: UnsafePointer<Void>) {
+    @objc func image(image : UIImage, didFinishSavingWithError error : NSError!, contextInfo info: UnsafeRawPointer) {
         if error == nil {
             let alert = UIAlertView(title: "提示", message: "保存成功", delegate: nil, cancelButtonTitle: "OK");
             alert.show();

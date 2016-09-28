@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,18 +15,16 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config-active" translatesAutoresizingMaskIntoConstraints="NO" id="4co-V7-but">
-                                <rect key="frame" x="193" y="124" width="215" height="215"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="215" id="bgk-Dl-l4H"/>
                                     <constraint firstAttribute="width" constant="215" id="nCd-NW-pag"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用云子配置工具扫描上面二维码，或者把图像保存后，再用配置工具读取。以便把云子配置为试验用Beacon。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSP-8c-duT">
-                                <rect key="frame" x="193" y="387" width="255" height="103"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="4LO-Bn-mjq"/>
                                 </constraints>
@@ -34,22 +33,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKp-Tb-A5W">
-                                <rect key="frame" x="240" y="525" width="120" height="30"/>
                                 <state key="normal" title="保存二维码到相册">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveToAlbum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0db-gt-4vh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-rs-GpS">
-                                <rect key="frame" x="269" y="65" width="62" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="f7f-r9-jqc"/>
                                 </constraints>
                                 <state key="normal" title="启动监测">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startMonitor:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="idz-bk-qKA"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4co-V7-but" firstAttribute="centerX" secondItem="6Pr-rs-GpS" secondAttribute="centerX" id="Ib1-pe-N9m"/>
                             <constraint firstAttribute="centerY" secondItem="HKp-Tb-A5W" secondAttribute="centerY" constant="-240" id="MF8-P1-DnY"/>
@@ -62,6 +65,10 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hSP-8c-duT" secondAttribute="bottom" constant="110" id="rOn-c7-heQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="6Pr-rs-GpS" id="64h-Qi-0b4"/>
+                        <outlet property="image" destination="4co-V7-but" id="y4A-DF-B7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
