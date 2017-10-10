@@ -17,26 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
 
-//        if((UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0){
-//            if #available(iOS 8.0, *) {
-//                UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes:([.Alert, .Sound, .Badge]), categories: nil))
-//                UIApplication.sharedApplication().registerForRemoteNotifications()
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        }else{
-//            UIApplication.sharedApplication().registerForRemoteNotificationTypes(([.Alert, .Sound, .Badge]))
-//        }
-//
+        if((UIDevice.current.systemVersion as NSString).floatValue >= 8.0){
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types:([.alert,.sound,.badge]), categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }else{
+            UIApplication.shared.registerForRemoteNotifications(matching: [.alert,.sound,.badge]);
+        }
+
         //在通过Location唤醒时，launchOptions包含了UIApplicationLaunchOptionsLocationKey，
         //用于只是是从Location重新唤醒的。
-        if let options = launchOptions {
-        
-            NSLog("relaunched");
-            if let option = options[UIApplicationLaunchOptionsKey.location] {
-                NSLog("relaunched with \(option)");
-                SENLocationManager.sharedInstance.startMonitor(relaunch: true);
-            }
+        if let option = launchOptions, let _ = option[.location] as? NSNumber {
+            SENLocationManager.sharedInstance.startMonitor(relaunch: true);
         }
         
         return true

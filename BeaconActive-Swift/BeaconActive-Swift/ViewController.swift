@@ -33,9 +33,7 @@ class ViewController: UIViewController {
     }
 
     //46D06053-9FAD-483B-B704-E576735CE1A3
-
-    @IBAction func startMonitor(_ sender: AnyObject) {
-        
+    @IBAction func startMonitor(_ sender: Any) {
         if SENLocationManager.sharedInstance.started == false{
             actionButton.setTitle("结束监测", for: .normal);
             SENLocationManager.sharedInstance.startMonitor(relaunch: false);
@@ -44,7 +42,6 @@ class ViewController: UIViewController {
             SENLocationManager.sharedInstance.stopMonitor();
         }
     }
-    
     @IBAction func saveToAlbum(sender: AnyObject) {
 //        UIImageWriteToSavedPhotosAlbum(image.image!,
 //            self,"image:didFinishSavingWithError:contextInfo:",nil);

@@ -17,18 +17,15 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     var started = false;
     var monitorRegion : CLBeaconRegion!;
 
-    private override init(){
+    fileprivate override init(){
         
         super.init();
-        if #available(iOS 8.0, *) {
-            locationManager.requestAlwaysAuthorization()
-        } else {
-            // Fallback on earlier versions
-        };
-
+        if UIDevice.current.systemVersion.compare("8.0", options: .numeric, range: nil, locale: nil) != .orderedAscending {
+            locationManager.requestAlwaysAuthorization();
+        }
         locationManager.delegate = self;
         
-        monitorRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "46D06053-9FAD-483B-B704-E576735CE1A3")!,major:0x23A2,
+        monitorRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "46D06053-9FAD-483B-B704-E576735CE1A3")!,
             identifier: "SensoroBeaconActiveTest");
         
 //        monitorRegion.notifyOnEntry = true;
@@ -49,7 +46,6 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     
     func stopMonitor(){
         locationManager.stopMonitoring(for: monitorRegion);
-        locationManager.stopRangingBeacons(in: monitorRegion);
         started = false;
         NSLog("Stop monitor region!");
     }
@@ -59,8 +55,8 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
         notification.alertBody = notify
         
 //        notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-//        notification.soundName = UILocalNotificationDefaultSoundName
-//        UIApplication.shared.scheduleLocalNotification(notification)
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     //MARK: CLLocationManagerDelegate
@@ -71,13 +67,13 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
             let now = Date();
             let formatter = DateFormatter();
             formatter.dateFormat = "YYYY/MM/dd HH:mm:ss";
-            //sendNotification("Enter region at \(formatter.stringFromDate(now))");
+            sendNotification(notify: "Enter region at \(formatter.string(from: now))");
             NSLog("Enter region at \(formatter.string(from: now))");
         case .outside:
             let now = Date();
             let formatter = DateFormatter();
             formatter.dateFormat = "YYYY/MM/dd HH:mm:ss";
-            //sendNotification("Exit  region at \(formatter.stringFromDate(now))");
+            sendNotification(notify: "Exit  region at \(formatter.string(from: now))");
             NSLog("Exit  region at \(formatter.string(from: now))");
         case .unknown:
             NSLog("This region state was unknown!");
