@@ -21,15 +21,15 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     var started = false;
     var monitorRegion : CLBeaconRegion!;
 
-    private override init(){
+    fileprivate override init(){
         
         super.init();
-        if UIDevice.currentDevice().systemVersion.compare("8.0", options: .NumericSearch, range: nil, locale: nil) != .OrderedAscending {
+        if UIDevice.current.systemVersion.compare("8.0", options: .numeric, range: nil, locale: nil) != .orderedAscending {
             locationManager.requestAlwaysAuthorization();
         }
         locationManager.delegate = self;
         
-        monitorRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "46D06053-9FAD-483B-B704-E576735CE1A3"),
+        monitorRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "46D06053-9FAD-483B-B704-E576735CE1A3")!,
             identifier: "SensoroBeaconActiveTest");
         
 //        monitorRegion.notifyOnEntry = true;
@@ -38,7 +38,7 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     
     func startMonitor( relaunch : Bool ){
         if relaunch == false {
-            locationManager.startMonitoringForRegion(monitorRegion);
+            locationManager.startMonitoring(for: monitorRegion);
             NSLog("Start monitor region!");
         }else{
             NSLog("During the relauch app, don't restart monitor region!");
@@ -47,43 +47,43 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func stopMonitor(){
-        locationManager.stopMonitoringForRegion(monitorRegion);
+        locationManager.stopMonitoring(for: monitorRegion);
         started = false;
         NSLog("Stop monitor region!");
     }
     
     func sendNotification(notify : String){
-        var notification = UILocalNotification()
+        let notification = UILocalNotification()
         notification.alertBody = notify
         
 //        notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
         notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     //MARK: CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didDetermineState state: CLRegionState, forRegion region: CLRegion!) {
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         
         switch state {
-        case .Inside:
-            let now = NSDate();
-            let formatter = NSDateFormatter();
+        case .inside:
+            let now = Date();
+            let formatter = DateFormatter();
             formatter.dateFormat = "YYYY/MM/dd HH:mm:ss";
-            sendNotification("Enter region at \(formatter.stringFromDate(now))");
-            NSLog("Enter region at \(formatter.stringFromDate(now))");
-        case .Outside:
-            let now = NSDate();
-            let formatter = NSDateFormatter();
+            sendNotification(notify: "Enter region at \(formatter.string(from: now))");
+            NSLog("Enter region at \(formatter.string(from: now))");
+        case .outside:
+            let now = Date();
+            let formatter = DateFormatter();
             formatter.dateFormat = "YYYY/MM/dd HH:mm:ss";
-            sendNotification("Exit  region at \(formatter.stringFromDate(now))");
-            NSLog("Exit  region at \(formatter.stringFromDate(now))");
-        case .Unknown:
+            sendNotification(notify: "Exit  region at \(formatter.string(from: now))");
+            NSLog("Exit  region at \(formatter.string(from: now))");
+        case .unknown:
             NSLog("This region state was unknown!");
         }
         
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        NSLog("did Fail With Error %@", error);
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        NSLog("did Fail With Error \(error.localizedDescription)");
     }
 }

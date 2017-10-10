@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "config-active.JPG"
+      "filename" : "config-active.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
