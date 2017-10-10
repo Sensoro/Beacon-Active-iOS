@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     }
 
     //46D06053-9FAD-483B-B704-E576735CE1A3
-
     @IBAction func startMonitor(_ sender: Any) {
         if SENLocationManager.sharedInstance.started == false{
             actionButton.setTitle("结束监测", for: .normal);
@@ -43,14 +42,13 @@ class ViewController: UIViewController {
             SENLocationManager.sharedInstance.stopMonitor();
         }
     }
-    
-    @IBAction func saveToAlbum(_ sender: Any) {
-        UIImageWriteToSavedPhotosAlbum(image.image!,
-                                       self,#selector(image(image:didFinishSavingWithError:contextInfo:)),nil);
+    @IBAction func saveToAlbum(sender: AnyObject) {
+//        UIImageWriteToSavedPhotosAlbum(image.image!,
+//            self,"image:didFinishSavingWithError:contextInfo:",nil);
     }
 
     //
-    @objc func image(image : UIImage, didFinishSavingWithError error : NSError!, contextInfo info: UnsafeRawPointer) {
+    func image(image : UIImage, didFinishSavingWithError error : NSError!, contextInfo info: UnsafeRawPointer) {
         if error == nil {
             let alert = UIAlertView(title: "提示", message: "保存成功", delegate: nil, cancelButtonTitle: "OK");
             alert.show();

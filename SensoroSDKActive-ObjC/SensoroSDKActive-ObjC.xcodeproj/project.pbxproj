@@ -177,6 +177,11 @@
 				TargetAttributes = {
 					847A82591AD7A8DB00E578A3 = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					847A82721AD7A8DB00E578A3 = {
 						CreatedOnToolsVersion = 6.3;
@@ -436,6 +441,7 @@
 				847A827F1AD7A8DB00E578A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		847A82801AD7A8DB00E578A3 /* Build configuration list for PBXNativeTarget "SensoroSDKActive-ObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +450,7 @@
 				847A82821AD7A8DB00E578A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

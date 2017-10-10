@@ -9,13 +9,9 @@
 import UIKit
 import CoreLocation
 
-private let _sharedInstance = SENLocationManager();
-
 class SENLocationManager: NSObject, CLLocationManagerDelegate {
 
-    class var sharedInstance : SENLocationManager {
-        return _sharedInstance;
-    }
+    static let sharedInstance = SENLocationManager();
 
     let locationManager = CLLocationManager();
     var started = false;
@@ -41,6 +37,7 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
             locationManager.startMonitoring(for: monitorRegion);
             NSLog("Start monitor region!");
         }else{
+//            locationManager.startRangingBeacons(in: monitorRegion);
             NSLog("During the relauch app, don't restart monitor region!");
         }
         started = true;
