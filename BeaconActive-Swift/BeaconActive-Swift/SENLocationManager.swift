@@ -38,10 +38,10 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     func startMonitor( relaunch : Bool ){
         if relaunch == false {
             locationManager.startMonitoring(for: monitorRegion);
-//            locationManager.startRangingBeacons(in: monitorRegion);
+            locationManager.startRangingBeacons(in: monitorRegion);
             NSLog("Start monitor region!");
         }else{
-//            locationManager.startRangingBeacons(in: monitorRegion);
+            locationManager.startRangingBeacons(in: monitorRegion);
             NSLog("During the relauch app, don't restart monitor region!");
         }
         started = true;
@@ -86,10 +86,10 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("did Fail With Error : ", error);
+        NSLog("did Fail With Error : %@", error as NSError);
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-//        print("Found beacons : ", beacons);
+        NSLog("Found beacons : %@", beacons);
     }
 }
