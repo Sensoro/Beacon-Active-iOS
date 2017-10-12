@@ -40,5 +40,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save QRCode to album</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Save QRCode to album</string>
 </dict>
 </plist>

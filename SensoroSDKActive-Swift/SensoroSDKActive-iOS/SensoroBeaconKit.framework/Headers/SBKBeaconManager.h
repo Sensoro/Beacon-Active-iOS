@@ -188,8 +188,8 @@ typedef void(^SBKBeaconWatcher)(SBKBeacon* beacon, SBKBeacon_Action action);
 @property (readonly, nonatomic) NSString* version;
 
 /**
- *  Set whether enable duplicate key for scanning device in background mode.
- *  default is NO，To set this property before call startRangingBeaconsWithID.
+ *  Set whether enable duplicate key for scanning device.
+ *  default is NO in background mode, YES in foreground mode，To set this property before call startRangingBeaconsWithID.
  *
  *  @discussion if set this property to YES, the SDK will continuously receive packet from device, 
     but this increase the power consumption, NO, SDK will receive one packet from device unless this packet was changed.

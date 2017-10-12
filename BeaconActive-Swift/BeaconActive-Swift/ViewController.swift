@@ -43,12 +43,12 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func saveToAlbum(sender: AnyObject) {
-//        UIImageWriteToSavedPhotosAlbum(image.image!,
-//            self,"image:didFinishSavingWithError:contextInfo:",nil);
+        UIImageWriteToSavedPhotosAlbum(image.image!,
+                                       self, #selector(image(image:didFinishSavingWithError:contextInfo:)) ,nil);
     }
 
     //
-    func image(image : UIImage, didFinishSavingWithError error : NSError!, contextInfo info: UnsafeRawPointer) {
+    @objc func image(image : UIImage, didFinishSavingWithError error : NSError!, contextInfo info: UnsafeRawPointer) {
         if error == nil {
             let alert = UIAlertView(title: "提示", message: "保存成功", delegate: nil, cancelButtonTitle: "OK");
             alert.show();

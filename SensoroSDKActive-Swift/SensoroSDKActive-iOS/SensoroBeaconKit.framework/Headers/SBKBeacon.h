@@ -326,7 +326,7 @@ typedef void (^SBKBeaconCompletionBlock)(NSError *error);
 /**
  *  Disable the enhance broadcast.
  *
- *  @param completion  The block to execute after the writing is completed. If error parameter is nil means writing successfully.
+ *  @param completion The block to execute after the writing is completed. If error parameter is nil means writing successfully.
  *
  *  @return Can this writing operation be executed.
  *
@@ -346,7 +346,7 @@ typedef void (^SBKBeaconCompletionBlock)(NSError *error);
  *
  *  @discussion The Enhance broadcast it could make the SDK find this device as Sensoro device even if iOS device is locked,
  + *  In other words, the screen was turned off. Normally, this device can be found by iOS device as the iBeacon device. If
- + *  you want to use SDK and find Sensoro device when the iOS device was locked, you need to enable this feature. And this
+ + *  you want to use SDK to find Sensoro device when the iOS device was locked, you need to enable this feature. And this
  + *  mode will increase the power consumption.
  */
 - (BOOL)enableEnhanceBroadcastWithCompletion:(SBKBeaconCompletionBlock)completion;
@@ -366,7 +366,7 @@ typedef void (^SBKBeaconCompletionBlock)(NSError *error);
                    completion:(SBKBeaconCompletionBlock)completion;
 
 /**
- *  flash light of SmartBeacon.
+ *  flash light of SmartBeacon. now it is deprecated.
  *
  *  @param completion  The block to execute after the writing is completed. If error parameter is nil means writing successfully.
  *
