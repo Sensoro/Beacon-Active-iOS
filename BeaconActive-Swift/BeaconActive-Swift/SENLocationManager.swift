@@ -35,6 +35,7 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     func startMonitor( relaunch : Bool ){
         if relaunch == false {
             locationManager.startMonitoring(for: monitorRegion);
+            locationManager.startRangingBeacons(in: monitorRegion);
             NSLog("Start monitor region!");
         }else{
 //            locationManager.startRangingBeacons(in: monitorRegion);
@@ -78,6 +79,13 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
             NSLog("This region state was unknown!");
         }
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        print(#function);
+        for beacon in beacons{
+            print("beacon: \(beacon.description)")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
