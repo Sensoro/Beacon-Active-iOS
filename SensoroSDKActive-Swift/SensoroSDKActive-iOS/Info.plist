@@ -41,5 +41,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>本软件需要授权使用位置服务，以发现周围的beacon</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>本软件需要授权使用位置服务，以发现周围的beacon</string>
 </dict>
 </plist>

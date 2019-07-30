@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
         // Override point for customization after application launch.
         
 //        let iOSVersion = (UIDevice.current.systemVersion as NSString).floatValue;
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let options = launchOptions {
             NSLog("Relauched")
             
-            if (options[UIApplicationLaunchOptionsKey.location] as? NSNumber) != nil {
+            if (options[UIApplication.LaunchOptionsKey.location] as? NSNumber) != nil {
                 NSLog("Relauched with number")
                 
                 SENLocationManager.sharedInstance.startMonitor(relaunch: true);
