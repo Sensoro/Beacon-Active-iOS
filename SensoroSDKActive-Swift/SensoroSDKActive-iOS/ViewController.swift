@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func saveToAlbum(sender: AnyObject) {
-//        UIImageWriteToSavedPhotosAlbum(image.image!,
-//                                       self,#selector("image:didFinishSavingWithError:contextInfo:"),nil);
+        UIImageWriteToSavedPhotosAlbum(image.image!,
+                                       self,#selector(image(image:didFinishSavingWithError:contextInfo:)),nil);
     }
     
     //

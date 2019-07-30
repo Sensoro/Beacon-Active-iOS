@@ -25,3 +25,8 @@ FOUNDATION_EXPORT const unsigned char SensoroBeaconKitVersionString[];
 #import <SensoroBeaconKit/SBKError.h>
 #import <SensoroBeaconKit/SBKUnitConvertHelper.h>
 
+#import <SensoroBeaconKit/SIKBeacon.h>
+#import <SensoroBeaconKit/SIKManager.h>
+#import <SensoroBeaconKit/SIKUser.h>
+#import <SensoroBeaconKit/SIKError.h>
+

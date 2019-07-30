@@ -38,7 +38,7 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
             locationManager.startRangingBeacons(in: monitorRegion);
             NSLog("Start monitor region!");
         }else{
-//            locationManager.startRangingBeacons(in: monitorRegion);
+            locationManager.startRangingBeacons(in: monitorRegion);
             NSLog("During the relauch app, don't restart monitor region!");
         }
         started = true;
@@ -89,6 +89,10 @@ class SENLocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        NSLog("did Fail With Error \(error.localizedDescription)");
+        NSLog("did Fail With Error : %@", error as NSError);
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        NSLog("Found beacons : %@", beacons);
     }
 }

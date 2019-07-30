@@ -2,13 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-<<<<<<< HEAD
       "filename" : "config-active.png",
       "scale" : "1x"
-=======
-      "scale" : "1x",
-      "filename" : "config-active.png"
->>>>>>> afa2b608a940f56085528ab7d78dd363d7b815f6
     },
     {
       "idiom" : "universal",

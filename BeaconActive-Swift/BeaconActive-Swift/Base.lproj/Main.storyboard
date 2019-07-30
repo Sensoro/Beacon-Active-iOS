@@ -43,7 +43,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveToAlbumWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6la-3J-4ob"/>
+                                    <action selector="saveToAlbumWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z6B-GZ-9mw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-rs-GpS">
